@@ -3,21 +3,26 @@ layout: default
 title: "Join"
 description: "Open Positions"
 group: navigation
-navorder: 6
+navorder: 5
 ---
 {% include JB/setup %}
 <div class="hugespacer"></div>
 <div class="head"><big>We are hiring!</big></div>
 <div class="bigspacer"></div>
-<div class="post">Come join us in the Getz Lab (Broad Institute / MGH Cancer Center) to help shape the future of cancer research at the cutting edge of computaional genomics and cancer biology.  Current open positions:</div>
+<div class="post">Come join us to help shape the future of virology, immunology, and gene and cell therapy research!  <br> <br>
+   <b>Postdocs:</b> We have both experimental and theoretical projects and we welcome postdocs from all backgrounds. Please email Ian with a brief statement of your research interests and CV. Open searches will be listed below, but we welcome off-cycle applications from motivated candidates, as well.<br><br>
+   <b>Graduate students:</b> We have both experimental and theoretical projects, and we welcome students from the <a href="https://www.vagelos.columbia.edu/education/academic-programs/vagelos-institutes-biomedical-research-education" target="_blank">VIBRE</a> Biomedical Life Sciences umbrella program at Columbia. We also welcome inquiries from students in other Columbia Ph.D. programs, though advisory eligibility will need to be confirmed for each situation. Please email Ian to arrange a meeting to discuss potential projects. <br><br>
+   <b>Technicians:</b> Technical staff positions will be posted to the Columbia Careers page and listed below. Feel free to also get in touch by emailing Ian if you are interested.<br><br>
+   <b>Undergraduate and Master's Students:</b> Please email Ian with a brief statement of your research interests and CV. Undergraduate students should only apply if they are really curious about research. Master's students should only apply if they plan to do a Master’s thesis or equivalent.<br><br>
+   </div>
 
 <div class="bigspacer"></div>
 <div class="row">
   <div class="col-md-6">
-    <div class="head">Broad</div>
+    <div class="head">Open Positions</div>
     {% for job in site.categories.positions %}    		     
     <div class="row">
-            {% if job.institution == "Broad" and job.active != false %}
+            {% if job.institution == "Columbia" and job.active != false %}
 	    <div class="bigspacer"></div>
 	      <div class="position">
 			<div class="smallhead">
@@ -31,7 +36,7 @@ navorder: 6
     </div>
     {% endfor %}
   </div>
-  
+<!--   
   {% assign mgh_jobs = site.categories.positions | where: "institution", "MGH" %}
   {% assign active_mgh_jobs = "" | split: ',' %}
   {% for job in mgh_jobs %}
@@ -58,5 +63,5 @@ navorder: 6
     </div>
     {% endfor %}
   </div>
-  {% endif %}
+  {% endif %} -->
 </div>

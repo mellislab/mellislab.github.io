@@ -3,7 +3,7 @@ layout: default
 title: "Papers"
 description: "Research papers from the lab"
 group: navigation
-navorder: 3
+navorder: 2
 ---
 {% include JB/setup %}
 
@@ -11,14 +11,15 @@ navorder: 3
 <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
 
 <div class="hugespacer"></div>
-<div class="bigtitle text-left">Selected Papers</div>
+<div class="bigtitle text-left">Publications</div>
 <div>
-See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=gad+getz&sort=date">PubMed</a> and <a href="https://scholar.google.com/citations?user=q-KRzawAAAAJ&hl=en&oi=ao">Google Scholar</a> for complete lists of Getz Lab papers.
+See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=ian+mellis&sort=date">PubMed</a> and <a href="https://scholar.google.com/citations?hl=en&user=9IELUHoAAAAJ&view_op=list_works&sortby=pubdate">Google Scholar</a> for complete lists of Mellis Lab papers.
 </div>
 <div class="bigspacer"></div>
 
 {% assign dir_year = "" %}
 {% assign dir_years = "" | split: ", " %}
+
 
 {% for paper in site.categories.papers %}
 
@@ -30,16 +31,22 @@ See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=gad+getz&sort=date">PubMed</a
 {% endfor %}
 {% assign dir_years = dir_years | join: " | " %}
 
-<div class="text-left">
+<!-- <div class="text-left">
   {{ dir_years }}
-</div>  
+</div>   -->
+<br>
+<div class="text-left">
+	  Lab Members and Co-Mentees in <b>Bold</b><br>* = equal contribution<br><sup>#</sup> = corresponding
+</div>
 
 {% assign team_citation_names = "" | split: ", " %}
 {% for team_member in site.categories.team %}
-  {% if team_member.citation_names %}
-    {% assign member_citation_names = team_member.citation_names | split: ", " %}
-    {% assign team_citation_names = team_citation_names | concat: member_citation_names %}
-  {% endif %}
+  {% unless team_member.category contains 'Friend' %}
+    {% if team_member.citation_names %}
+      {% assign member_citation_names = team_member.citation_names | split: ", " %}
+      {% assign team_citation_names = team_citation_names | concat: member_citation_names %}
+    {% endif %}
+  {% endunless %}
 {% endfor %}
 
 <div class="bigspacer"></div>
@@ -60,11 +67,11 @@ See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=gad+getz&sort=date">PubMed</a
       <br><br>
       <div class="title">{{ year }}</div>
     {% endif %}
-    {% assign first_authors = paper.first_authors | split: ", " %}
+    {% assign front_authors = paper.front_authors | split: ", " %}
     {% assign senior_authors = paper.senior_authors | split: ", " %}
     {% assign shortened_authors = "" | split: ", " %}
   
-    {% for first_author in first_authors %}
+    <!-- {% for first_author in front_authors %}
       {% if pruned_team_citation_names contains first_author %}	      
         {% assign revised_first_author = "<b>" | append: first_author | append: "</b>" %}
         {% assign shortened_authors = shortened_authors | push: revised_first_author %}
@@ -93,6 +100,77 @@ See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=gad+getz&sort=date">PubMed</a
     {% endif %}
     {% assign shortened_authors = shortened_authors | join: ", " %}	    
 
+    {% assign shortened_authors = shortened_authors | split: ", " %}
+    {% assign revised_shortened_authors = "" | split: ", " %}
+
+    {% for author in shortened_authors %}
+      {% if pruned_team_citation_names contains author %}	      
+        {% assign revised_author = "<b>" | append: author | append: "</b>" %}
+      {% else %}
+        {% assign revised_author = author %}
+      {% endif %}
+      {% if paper.first_authors contains author %}
+          {% assign revised_author = revised_author | append: "*" %}
+      {% endif %}
+      {% if paper.senior_authors contains author %}
+          {% assign revised_author = revised_author | append: "<sup>#</sup>" %}
+      {% endif %}
+      {% if paper.corresponding_authors contains author %}
+          {% assign revised_author = revised_author | append: "^" %}
+      {% endif %}
+      {% assign revised_shortened_authors = revised_shortened_authors | push: revised_author %}
+
+    {% endfor %}	    
+    {% assign  shortened_authors  = revised_shortened_authors | join: ", " %} -->
+
+    {% assign team_citation_names = "" | split: ", " %}
+    {% for team_member in site.categories.team %}
+    {% unless team.member.category contains 'Friend' %}
+      {% if team_member.citation_names %}
+        
+          {% assign member_citation_names = team_member.citation_names | split: ", " %}
+          {% assign team_citation_names = team_citation_names | concat: member_citation_names %}
+        
+      {% endif %}
+      {% endunless %}
+    {% endfor %}
+
+    {% assign pruned_team_citation_names = "" | split: "," %}
+    {% for citation_name in team_citation_names %}
+      {% unless paper.explicit_nonlab_citations contains citation_name %}
+        {% assign pruned_team_citation_names = pruned_team_citation_names | push: citation_name %}
+      {% endunless %}
+    {% endfor %}
+    {% assign pruned_team_citation_names = pruned_team_citation_names | join: ", " %}
+
+
+    <!-- {% assign team_citation_names = team_citation_names | join: ", " %} -->
+
+    {% assign authors = paper.authors | replace: "; ", ", " %}
+    {% assign authors = authors | split: ", " %}
+    {% assign revised_authors = "" | split: ", " %}
+
+    {% for author in authors %}
+      {% if pruned_team_citation_names contains author %}	      
+        {% assign revised_author = "<b>" | append: author | append: "</b>" %}
+      {% else %}
+        {% assign revised_author = author %}
+      {% endif %}
+      {% if paper.first_authors contains author %}
+          {% assign revised_author = revised_author | append: "*" %}
+      {% endif %}
+      {% if paper.senior_authors contains author %}
+          {% assign revised_author = revised_author | append: "<sup>#</sup>" %}
+      {% endif %}
+      {% if paper.corresponding_authors contains author %}
+          {% assign revised_author = revised_author | append: "^" %}
+      {% endif %}
+      {% assign revised_authors = revised_authors | push: revised_author %}
+
+    {% endfor %}	    
+    {% assign  authors  = revised_authors | join: ", " %}
+
+
     <div class="row">
 
       <div class="col-md-10">  
@@ -112,7 +190,8 @@ See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=gad+getz&sort=date">PubMed</a
                 </div>
 
               <p class="note">
-                {{ shortened_authors }}<br>
+                {{ authors }}<br>
+                <!-- {{ shortened_authors }}<br> -->
                 <span class="journal">
                   {{ paper.journal }}
                 </span>
@@ -125,7 +204,14 @@ See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=gad+getz&sort=date">PubMed</a
                 {% if paper.pages %}
                   {{ paper.pages }} 
                 {% endif %}
-                ({{ paper.year }}).
+                ({{ paper.year }}). 
+                {% if paper.status %}
+                  ({{ paper.status }})
+                {% endif %}
+                {% if paper.doi %}
+                <a class="off" href="http://dx.doi.org/{{ paper.doi }}" target="_blank">http://dx.doi.org/{{ paper.doi }}</a>
+                {% endif %}
+                <br><br>
               </p>
             </div>
           </div>
@@ -133,7 +219,7 @@ See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=gad+getz&sort=date">PubMed</a
       </div>
     </div>
 
-    <div class="col-md-2">
+    <!-- <div class="col-md-2">
       <div class="pull-right">
         <div class="badge">
           <div class='altmetric-embed' data-badge-type='donut' data-badge-popover="left" data-doi={{ paper.doi }}></div>
@@ -144,7 +230,7 @@ See <a href="https://pubmed.ncbi.nlm.nih.gov/?term=gad+getz&sort=date">PubMed</a
           <div class="__dimensions_badge_embed__" data-doi={{ paper.doi }} data-legend="hover-left" data-style="small_circle"></div> 
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>  
 

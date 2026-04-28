@@ -3,7 +3,7 @@ layout: default
 title: "Team"
 description: "People in the lab"
 group: navigation
-navorder: 2
+navorder: 3
 ---
 {% include JB/setup %}
 
@@ -16,14 +16,16 @@ navorder: 2
 {% assign pi = site.categories.team | where: "category","Principal Investigator"%}
 {% for member in pi %}
     <div class="row">
-    <div class="col-md-4 memberbox">
+    <div class="col-md-12 memberbox">
         <div class="media">
 	    <a class="pull-left" href="{{ member.url }}">
             <img width=160 class="media-object" src="{{ member.image }}" style="float: left">
 	    </a>
             <div class="media-body">
 	    <div class="head media-heading member-name"><a href="{{ member.url }}" class="off">{{ member.title }}</a></div>
-	    <p class="note">{{ member.category }}</p>
+	    <p class="note">{{ member.position }}</p>
+		<p class="note"> </p>
+		<p class="note">{{ member.education }}</p>
 	    </div>
 	</div>
     </div>
@@ -31,29 +33,30 @@ navorder: 2
 {% endfor %}
 
 <div class="bigspacer"></div>
-<div class="title subtle">Operations and Administration</div>
+<div class="title subtle">Lab Members</div>
 <div class="bigspacer"></div>
 {% assign current_team = site.categories.team | where: "alum","false" %}
-{% assign current_staff_op_admin = current_team | where: "category", "Operations and Administration" %}
+{% assign current_staff_members = current_team | where: "category", "Member" %}
 {% assign memberindex = 0 %}
-{% for member in current_staff_op_admin reversed %}
+{% for member in current_staff_members reversed %}
 	{% assign memberindex = memberindex | plus: 1 %}
-	{% assign colindex = memberindex | modulo: 4 %}
+	{% assign colindex = memberindex | modulo: 2 %}
 	{% if colindex == 1 %} <!-- opening of a new row -->
 	<div class="row">
 	{% endif %}
-	<div class="col-md-3 memberbox">
+	<div class="col-md-5 memberbox">
 		<div class="media">
 		                <a class="pull-left" href="{{ member.url }}">
-                                {% if member.image %}
-		    	        <img width=100 class="media-object" src="{{ member.image }}" style="float: left">
+                                {% if member.image %} <!-- should be 160 px wide by 196 px tall or scaled up same ratio -->
+		    	        <img width=160 class="media-object" src="{{ member.image }}" style="float: left">
                                 {% else %}
-		    	        <img width=100 class="media-object" src="/assets/images/team/default-member.jpeg" style="float: left">
+		    	        <img width=160 class="media-object" src="/assets/images/team/default-member.jpeg" style="float: left">
 				{% endif %}
 				</a>
 			 	<div class="media-body">
-				<div class="smallhead media-heading member-name"><a href="{{ member.url }}" class="off">{{ member.title }}</a></div>
-				<p class="smallnote">{{ member.position }}</p>
+				<div class="head media-heading member-name"><a href="{{ member.url }}" class="off">{{ member.title }}</a></div>
+				<p class="note">{{ member.position }}</p>
+				<p class="note">{{ member.education }}</p> 
 				</div>
 		</div>
     </div>	  
@@ -66,12 +69,49 @@ navorder: 2
 {% endif %}
 
 <div class="bigspacer"></div>
-<div class="title subtle">Staff Scientists</div>
+<div class="title subtle">Co-Mentees</div>
+<div class="bigspacer"></div>
+{% assign current_team = site.categories.team | where: "alum","false" %}
+{% assign current_comentees = current_team | where: "category", "Co-Mentee" %}
+{% assign memberindex = 0 %}
+{% for member in current_comentees reversed %}
+	{% assign memberindex = memberindex | plus: 1 %}
+	{% assign colindex = memberindex | modulo: 2 %}
+	{% if colindex == 1 %} <!-- opening of a new row -->
+	<div class="row">
+	{% endif %}
+	<div class="col-md-5 memberbox">
+		<div class="media">
+		                <a class="pull-left" href="{{ member.url }}">
+                                {% if member.image %}
+		    	        <img width=160 class="media-object" src="{{ member.image }}" style="float: left">
+                                {% else %}
+		    	        <img width=160 class="media-object" src="/assets/images/team/default-member.jpeg" style="float: left">
+				{% endif %}
+				</a>
+			 	<div class="media-body">
+				<div class="head media-heading member-name"><a href="{{ member.url }}" class="off">{{ member.title }}</a></div>
+				<p class="note">{{ member.position }}</p>
+				<p class="note">Primary Mentor: {{ member.primary }}</p>
+				<p class="note">{{ member.education }}</p>
+				</div>
+		</div>
+    </div>	  
+	{% if colindex == 0 %} <!-- closing a row -->
+	</div><div class="bigspacer"></div>
+	{% endif %}
+{% endfor %}
+{% if colindex != 0 %} <!-- close last open row -->
+</div><div class="bigspacer"></div>
+{% endif %}
+
+<div class="bigspacer"></div>
+<div class="title subtle">Friends of Lab</div>
 <div class="bigspacer"></div>
 {% assign current_team = site.categories.team | where: "alum","false"%}
-{% assign current_staff_scientists = current_team | where: "category", "Staff Scientist"%}
+{% assign current_friends = current_team | where: "category", "Friend"%}
 {% assign memberindex = 0 %}
-{% for member in current_staff_scientists reversed %}
+{% for member in current_friends reversed %}
 	{% assign memberindex = memberindex | plus: 1 %}
 	{% assign colindex = memberindex | modulo: 4 %}
 	{% if colindex == 1 %} <!-- opening of a new row -->
@@ -89,6 +129,7 @@ navorder: 2
 			 	<div class="media-body">
 				<div class="smallhead media-heading member-name"><a href="{{ member.url }}" class="off">{{ member.title }}</a></div>
 				<p class="smallnote">{{ member.position }}</p>
+				<p class="smallnote">{{ member.institution }}</p>
 				</div>
 		</div>
     </div>	  
@@ -99,77 +140,7 @@ navorder: 2
 {% if colindex != 0 %} <!-- close last open row -->
 </div><div class="bigspacer"></div>
 {% endif %}
-
-<div class="bigspacer"></div>
-<div class="title subtle">Staff Engineers</div>
-<div class="bigspacer"></div>
-{% assign current_team = site.categories.team | where: "alum","false"%}
-{% assign current_staff_engineers = current_team | where: "category", "Staff Engineer"%}
-{% assign memberindex = 0 %}
-{% for member in current_staff_engineers reversed %}
-	{% assign memberindex = memberindex | plus: 1 %}
-	{% assign colindex = memberindex | modulo: 4 %}
-	{% if colindex == 1 %} <!-- opening of a new row -->
-	<div class="row">
-	{% endif %}
-	<div class="col-md-3 memberbox">
-		<div class="media">
-		                <a class="pull-left" href="{{ member.url }}">
-                                {% if member.image %}
-		    	        <img width=100 class="media-object" src="{{ member.image }}" style="float: left">
-                                {% else %}
-		    	        <img width=100 class="media-object" src="/assets/images/team/default-member.jpeg" style="float: left">
-				{% endif %}
-				</a>
-			 	<div class="media-body">
-				<div class="smallhead media-heading member-name"><a href="{{ member.url }}" class="off">{{ member.title }}</a></div>
-				<p class="smallnote">{{ member.position }}</p>
-				</div>
-		</div>
-    </div>	  
-	{% if colindex == 0 %} <!-- closing a row -->
-	</div><div class="bigspacer"></div>
-	{% endif %}
-{% endfor %}
-{% if colindex != 0 %} <!-- close last open row -->
-</div><div class="bigspacer"></div>
-{% endif %}
-
-<div class="bigspacer"></div>
-<div class="title subtle">Research and Computational Associates</div>
-<div class="bigspacer"></div>
-{% assign current_team = site.categories.team | where: "alum","false"%}
-{% assign current_associates = current_team | where: "category", "Associate"%}
-{% assign memberindex = 0 %}
-{% for member in current_associates reversed %}
-	{% assign memberindex = memberindex | plus: 1 %}
-	{% assign colindex = memberindex | modulo: 4 %}
-	{% if colindex == 1 %} <!-- opening of a new row -->
-	<div class="row">
-	{% endif %}
-	<div class="col-md-3 memberbox">
-		<div class="media">
-		                <a class="pull-left" href="{{ member.url }}">
-                                {% if member.image %}
-		    	        <img width=100 class="media-object" src="{{ member.image }}" style="float: left">
-                                {% else %}
-		    	        <img width=100 class="media-object" src="/assets/images/team/default-member.jpeg" style="float: left">
-				{% endif %}
-				</a>
-			 	<div class="media-body">
-				<div class="smallhead media-heading member-name"><a href="{{ member.url }}" class="off">{{ member.title }}</a></div>
-				<p class="smallnote">{{ member.position }}</p>
-				</div>
-		</div>
-    </div>	  
-	{% if colindex == 0 %} <!-- closing a row -->
-	</div><div class="bigspacer"></div>
-	{% endif %}
-{% endfor %}
-{% if colindex != 0 %} <!-- close last open row -->
-</div><div class="bigspacer"></div>
-{% endif %}
-
+<!-- 
 <div class="bigspacer"></div>
 <div class="title subtle">Postdoctoral Researchers</div>
 <div class="bigspacer"></div>
@@ -179,7 +150,7 @@ navorder: 2
 {% for member in current_postdocs reversed %}
 	{% assign memberindex = memberindex | plus: 1 %}
 	{% assign colindex = memberindex | modulo: 4 %}
-	{% if colindex == 1 %} <!-- opening of a new row -->
+	{% if colindex == 1 %} opening of a new row
 	<div class="row">
 	{% endif %}
 	<div class="col-md-3 memberbox">
@@ -197,15 +168,15 @@ navorder: 2
 				</div>
 		</div>
     </div>	  
-	{% if colindex == 0 %} <!-- closing a row -->
+	{% if colindex == 0 %} closing a row
 	</div><div class="bigspacer"></div>
 	{% endif %}
 {% endfor %}
-{% if colindex != 0 %} <!-- close last open row -->
+{% if colindex != 0 %} close last open row
 </div><div class="bigspacer"></div>
-{% endif %}
+{% endif %} -->
 
-<div class="bigspacer"></div>
+<!-- <div class="bigspacer"></div>
 <div class="title subtle">Graduate Students</div>
 <div class="bigspacer"></div>
 {% assign current_team = site.categories.team | where: "alum","false" %}
@@ -214,7 +185,7 @@ navorder: 2
 {% for member in current_students reversed %}
 	{% assign memberindex = memberindex | plus: 1 %}
 	{% assign colindex = memberindex | modulo: 4 %}
-	{% if colindex == 1 %} <!-- opening of a new row -->
+	{% if colindex == 1 %} opening of a new row
 	<div class="row">
 	{% endif %}
 	<div class="col-md-3 memberbox">
@@ -232,11 +203,11 @@ navorder: 2
 				</div>
 		</div>
     </div>	  
-	{% if colindex == 0 %} <!-- closing a row -->
+	{% if colindex == 0 %} closing a row
 	</div><div class="bigspacer"></div>
 	{% endif %}
 {% endfor %}
-{% if colindex != 0 %} <!-- close last open row -->
+{% if colindex != 0 %} close last open row
 </div><div class="bigspacer"></div>
 {% endif %}
 
@@ -252,7 +223,7 @@ navorder: 2
 {% for member in current_associated_scientists reversed %}
 	{% assign memberindex = memberindex | plus: 1 %}
 	{% assign colindex = memberindex | modulo: 4 %}
-	{% if colindex == 1 %} <!-- opening of a new row -->
+	{% if colindex == 1 %} opening of a new row
 	<div class="row">
 	{% endif %}
 	<div class="col-md-3 memberbox">
@@ -270,13 +241,13 @@ navorder: 2
 				</div>
 		</div>
     </div>	  
-	{% if colindex == 0 %} <!-- closing a row -->
+	{% if colindex == 0 %} closing a row
 	</div><div class="bigspacer"></div>
 	{% endif %}
 {% endfor %}
-{% if colindex != 0 %} <!-- close last open row -->
+{% if colindex != 0 %} close last open row
 </div><div class="bigspacer"></div>
-{% endif %}
+{% endif %} -->
 
 {% endif %}
 <!-- Had to use the following hack to concatenate and sort collection because
@@ -325,13 +296,13 @@ navorder: 2
 {% endif %}
 
 <div class="bigspacer"></div>
-
+<!-- 
 <div class="row">
 	<div class="col-md-12">
 	  <img class="team-photo" src="/assets/images/events/Fall_2021_farm_trip/team_photo_fall_2021.jpg"/>
 	</div>
-</div>
-
+</div> -->
+<!-- 
 <div class="bigspacer"></div>
 <div class="bigtitle">Alumni</div>
 <div class="bigspacer"></div>
@@ -341,7 +312,7 @@ navorder: 2
 {% for member in alumni reversed %}
 	{% assign memberindex = memberindex | plus: 1 %}
 	{% assign colindex = memberindex | modulo: 4 %}
-	{% if colindex == 1 %} <!-- opening of a new row -->
+	{% if colindex == 1 %} opening of a new row 
 	<div class="row">
 	{% endif %}
 	<div class="col-md-3 memberbox" width=160>
@@ -354,10 +325,10 @@ navorder: 2
 				</div>
 		</div>
     </div>	  
-	{% if colindex == 0 %} <!-- closing a row -->
+	{% if colindex == 0 %} 
 	</div><div class="bigspacer"></div>
 	{% endif %}
 {% endfor %}
-{% if colindex != 0 %} <!-- close last open row -->
+{% if colindex != 0 %} 
 </div><div class="bigspacer"></div>
-{% endif %}
+{% endif %} -->

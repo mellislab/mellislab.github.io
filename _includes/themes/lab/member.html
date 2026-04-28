@@ -7,9 +7,9 @@
 	<div class="col-md-3">
 		<div class="media">
 			{% if member.image %}
-			<img width=250 class="pull-left" src="{{ member.image }}">
+			<img width=150 class="pull-left" src="{{ member.image }}">
 			{% else %}
-			<img width=250 class="pull-left" src="/assets/images/team/default-member.jpeg">
+			<img width=150 class="pull-left" src="/assets/images/team/default-member.jpeg">
 			{% endif %}
 		</div>
 	</div>
@@ -63,13 +63,24 @@
 		</div>		
 		<div class="bigspacer"></div>				
 		{% endif %}	
+		{% if member.bluesky %}		
+		<div class="smallhead">
+			Bluesky
+		</div>	
+		<div class="pad-left note">
+			<div class="smallspacer"></div>
+			<i class="fa-brands fa-bluesky fa-fw"></i>
+			<a class="off" href="https://bsky.app/profile/{{ member.bluesky }}">{{ member.bluesky }}</a>
+		</div>		
+		<div class="bigspacer"></div>				
+		{% endif %}	
 		{% if member.github %}
 		<div class="smallhead">
 			GitHub
 		</div>	
 		<div class="pad-left note">
 			<div class="smallspacer"></div>
-			<i class="fa fa-github-alt fa-fw"></i>
+			<i class="fa-brands fa-github-alt fa-fw"></i>
 			<a class="off" href="https://github.com/{{ member.github }}">{{ member.github }}</a>
 		</div>		
 		<div class="bigspacer"></div>	
@@ -96,7 +107,18 @@
 		</div>		
 		<div class="bigspacer"></div>	
 		{% endif %}					   	
-                
+        {% if member.linkedin %}
+		<div class="smallhead">
+			LinkedIn
+		</div>	
+		<div class="pad-left note">
+			<div class="smallspacer"></div>
+			<i class="fa-brands fa-linkedin fa-fw"></i>
+			<a class="off" href="https://linkedin.com/in/{{ member.linkedin }}">{{ member.linkedin }}</a>
+		</div>		
+		<div class="bigspacer"></div>			
+		{% endif %}
+        
 		{% if member.alum == false %}
                 {% unless member.mask_email == true %}
 		{% if member.email %}
@@ -114,18 +136,7 @@
 		{% endunless %}
 		{% endif %}
 		
-		{% if member.linkedin %}
-		<div class="smallhead">
-			LinkedIn
-		</div>	
-		<div class="pad-left note">
-			<div class="smallspacer"></div>
-			<i class="fa fa-linkedin fa-fw"></i>
-			<a class="off" href="https://linkedin.com/in/{{ member.linkedin }}">{{ member.linkedin }}</a>
-		</div>		
-		<div class="bigspacer"></div>			
-		{% endif %}
-
+		
 		{% if member.other_institution %}
 		<div class="smallhead">
 			{{ member.other_institution }}
@@ -151,7 +162,19 @@
 			<a class="off" href="{{ member.disclosures }}" target="_blank">{{ member.title }} disclosures</a>
 		</div>		
 		<div class="bigspacer"></div>			
-		{% endif %}						
+		{% endif %}			
+		
+		{% if member.website %}
+		<div class="smallhead">
+			Website
+		</div>	
+		<div class="pad-left note">
+		        <div class="smallspacer"></div>
+			<i class="fa-classic fa-solid fa-globe fa-fw"></i>
+			<a class="off" href="{{ member.website }}" target="_blank">{{ member.website }}</a>
+		</div>		
+		<div class="bigspacer"></div>			
+		{% endif %}		
 	</div>
 	<div class="col-md-8">	
 	<div class="post">
@@ -182,7 +205,7 @@
                     {% endif %}
                   {% endfor %}
 
-		  <div class="bigspacer"></div>
+		  <!-- <div class="bigspacer"></div>
 		  <div class="head">Selected Lab Papers</div>
 		  <div class="spacer"></div>
 		  <ul>
@@ -261,7 +284,7 @@
  		    {% endfor %}
                    {% endfor %}
                    </ul>
-		  {% endif %}
+		  {% endif %} 
 		  
 		{% for post in site.categories.blog %}
 			{% if member.handle == post.author_handle %}

@@ -4,7 +4,7 @@
   <div class="tagline">{{page.tagline}}</div>
   {% endif %}</h1>
 </div>
-
+<p class="post">{{ page.content }}</p>
 {% for image in site.static_files %}
   {% if image.path contains page.event_folder %}
     <a href="{{ site.baseurl }}{{ image.path }}" target="_blank">

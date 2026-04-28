@@ -1,7 +1,7 @@
 ---
-- repo: getzlab/CLUMPS
+- repo: mellislab/CLUMPS
   title: CLUMPS
-  owner: getzlab
+  owner: mellislab
   description: 
   url: "/tools/CLUMPS/"
   topics: []
@@ -13,33 +13,33 @@
   - date: 2022-07-19 17:14:35.000000000 Z
     message: updating requirements to pass security checks, added line to get dockerfile
       to compile
-    url: https://github.com/getzlab/CLUMPS/commit/d645df10b0c605a5b800b637017a270bc7b17a03
+    url: https://github.com/mellislab/CLUMPS/commit/d645df10b0c605a5b800b637017a270bc7b17a03
     author_login: ajdunford
     author_url: https://github.com/ajdunford
   - date: 2019-06-20 20:53:27.000000000 Z
     message: adding files for GPmapping
-    url: https://github.com/getzlab/CLUMPS/commit/1fb96742114e6ec8feb2b4d9808f9f8708f0607f
+    url: https://github.com/mellislab/CLUMPS/commit/1fb96742114e6ec8feb2b4d9808f9f8708f0607f
     author_login: ajdunford
     author_url: https://github.com/ajdunford
   - date: 2019-06-12 14:09:03.000000000 Z
     message: adding allCancerGenes.txt file used to calculate the restricted CLUMPS
       Q calculation
-    url: https://github.com/getzlab/CLUMPS/commit/c1856f39aab1522a97f364b4305f533dd009fb60
+    url: https://github.com/mellislab/CLUMPS/commit/c1856f39aab1522a97f364b4305f533dd009fb60
     author_login: ajdunford
     author_url: https://github.com/ajdunford
   - date: 2019-05-15 20:30:36.000000000 Z
     message: moving huniprot2pdb
-    url: https://github.com/getzlab/CLUMPS/commit/b7eaab714a4d1bfcbd25085156b71ce037cc7cc7
+    url: https://github.com/mellislab/CLUMPS/commit/b7eaab714a4d1bfcbd25085156b71ce037cc7cc7
     author_login: ''
     author_url: ''
   - date: 2019-05-15 20:29:11.000000000 Z
     message: adding huniprot2pdb gz file
-    url: https://github.com/getzlab/CLUMPS/commit/4f8065fd68730b285f903f6d087805e2025b36d9
+    url: https://github.com/mellislab/CLUMPS/commit/4f8065fd68730b285f903f6d087805e2025b36d9
     author_login: ''
     author_url: ''
-- repo: getzlab/MSMuTect1
+- repo: mellislab/MSMuTect1
   title: MSMuTect1
-  owner: getzlab
+  owner: mellislab
   description: 
   url: "/tools/MSMuTect1/"
   topics: []
@@ -53,16 +53,16 @@
   commits:
   - date: 2021-03-15 16:33:14.000000000 Z
     message: added readme
-    url: https://github.com/getzlab/MSMuTect1/commit/d94eb1595e229153c9f48b918862771985bddbb7
+    url: https://github.com/mellislab/MSMuTect1/commit/d94eb1595e229153c9f48b918862771985bddbb7
     author_login: AvrahamKahan123
     author_url: https://github.com/AvrahamKahan123
   - date: 2021-03-15 14:36:30.000000000 Z
     message: added all msmutect1
-    url: https://github.com/getzlab/MSMuTect1/commit/529667df5c140162b9118b82a608229a8f879ce0
+    url: https://github.com/mellislab/MSMuTect1/commit/529667df5c140162b9118b82a608229a8f879ce0
     author_login: AvrahamKahan123
     author_url: https://github.com/AvrahamKahan123
   - date: 2021-02-24 13:21:22.000000000 Z
     message: Initial commit
-    url: https://github.com/getzlab/MSMuTect1/commit/27be831a1fcb8f7421e9fad8f61d076d7880f619
+    url: https://github.com/mellislab/MSMuTect1/commit/27be831a1fcb8f7421e9fad8f61d076d7880f619
     author_login: cbirger
     author_url: https://github.com/cbirger

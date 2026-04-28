@@ -10,6 +10,9 @@ gem 'kramdown-parser-gfm'
 # Twitter
 gem 'jekyll-twitter-plugin'
 
+# Bluesky
+gem 'jekyll-bluesky'
+
 gem "webrick", "~> 1.9"
 
 # Jekyll SEO Tag

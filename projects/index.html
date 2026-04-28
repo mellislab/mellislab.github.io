@@ -10,7 +10,7 @@ navorder: 1
 <div class="bigtitle">Research Activities</div>
 <div class="hugespacer"></div>
 
-{% for project in site.categories.projects reversed %}
+<!-- {% for project in site.categories.projects reversed %}
 <div class="head">
   {{ project.title }}
 </div>
@@ -19,12 +19,57 @@ navorder: 1
   {{ project.content }}
 </div>
 <div class="bigspacer"></div>
+{% endfor %} -->
+
+{% for project in site.categories.projects reversed %}
+  <div class="row">
+    <div class="col-md-12 eventbox">
+      <div class="media">
+          <div class="pull-right"><img width=300 class="media-object" src="{{ project.image }}" style="float: left; padding-top: 20px;"></div>
+        <div class="media-body">
+            <div class="head">{{ project.title}}</div>
+            <div class="bigspacer"></div>
+            <p class="post">{{ project.content }}</p>
+        </div>
+      </div>
+    </div>
+  </div><div class="bigspacer"></div>
 {% endfor %}
 
 <div class="hugespacer"></div>
-<div class="bigtitle">Current and Past Funders</div>
-<div class="hugespacer"></div>
-
+<div class="bigtitle">Funding</div>
+<div class="smallspacer"></div>
+<div class="smallhead">We thank current and past funders of our research:</div>
+<div class="smallspacer"></div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <a href="https://www.pathology.columbia.edu/" target="_blank">Columbia University</a>
+  </div>
+</div>
+<br>
+<!-- <div class="row align-items-center" style="height: 100px;">
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <a href="https://gerstner.org/program-areas/biomedical-research/" target="_blank"><img src="{{ ASSET_PATH }}/images/logo/gerstner-logo.png" type="image/png" alt="Gerstner Philanthropies"></a>
+  </div>
+</div>
+<br> -->
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <a href="https://www.niaid.nih.gov/" target="_blank"><img src="{{ ASSET_PATH }}/images/logo/niaid-logo.svg" type="image/svg+xml" height="100"></a>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <a href="https://www.ninds.nih.gov/" target="_blank"><img src="{{ ASSET_PATH }}/images/logo/ninds-logo.png" type="image/png" height="100"></a>
+  </div>
+</div>
+<br>
+<!-- 
 <div class="head">International</div>
 <div class="bigspacer"></div>
 <div class="row">
@@ -193,4 +238,4 @@ navorder: 1
 
 <div class="hugespacer"></div>
 <div class="bigtitle"><a href="/recognitions/index">Honors, Awards and Fellowships</a></div>
-<div class="hugespacer"></div>
+<div class="hugespacer"></div> -->

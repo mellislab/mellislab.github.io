@@ -1,6 +1,6 @@
-# The Getz Lab website
+# The Mellis Lab website
 
-Our website, [www.getzlab.org](http://www.getzlab.org), is a [GitHub Pages](https://pages.github.com/) site built with [Jekyll](https://jekyllrb.com/) (a static site generator written in ruby) and [Bootstrap](http://getboostrap.com).  The software framework was forked from [Alan Drummond's site](http://drummondlab.org), which was originally pulled from [Trevor Bedford's site](http://bedford.io) and modified.
+Our website, [www.mellislab.org](http://mellislab.github.io) is a [GitHub Pages](https://pages.github.com/) site built with [Jekyll](https://jekyllrb.com/) (a static site generator written in ruby) and [Bootstrap](http://getboostrap.com).  The software framework was forked from [www.getzlab.org](http://www.getzlab.org), which was built from a fork from [Alan Drummond's site](http://drummondlab.org), which was originally pulled from [Trevor Bedford's site](http://bedford.io) and modified.
 
 Content and presentation are separated.  To add content to the site, one simply needs to update or add new markdown files, commit the changes to this repo's master branch and those changes will automatically be deployed to the public site.
 
@@ -26,23 +26,23 @@ Alternatively, you may install Ruby, with gems for Jekyll, GitHub Pages, and the
 
 ## Cloning the Getz Lab website's GitHub Repository
 
-The website's source code and documentation (i.e., this README file) are located in the GitHub repository [https://github.com/getzlab/getzlab.github.io](https://github.com/getzlab/getzlab.github.io).  This is a public repo, so anyone should be able to clone the repo.  However, in order to publish your changes back to the GitHub repo and issue pull requests, you will need write access to the repository.  Members of the [all_getzlab team](https://github.com/orgs/getzlab/teams/all_getzlab) within the getzlab GitHub organization have write access to the repo.
+The website's source code and documentation (i.e., this README file) are located in the GitHub repository [https://github.com/mellislab/mellislab.github.io](https://github.com/mellislab/mellislab.github.io).  This is a public repo, so anyone should be able to clone the repo.  However, in order to publish your changes back to the GitHub repo and issue pull requests, you will need write access to the repository.  Members of the [all_mellislab team](https://github.com/orgs/mellislab/teams/all_mellislab) within the mellislab GitHub organization have write access to the repo.
 
 When accessing GitHub via the git command line interface (CLI) to publish your local changes to the repo, you will need to authenticate yourself to GitHub.  How you authenticate to GitHub when using the CLI depends on the protocol you use to communicate with GitHub.  The options are https or SSH.  You specify the protocol when you clone the repo.  If you clone the repo by issuing the following git command:
 
-    git clone https://github.com/getzlab/getzlab.github.io
+    git clone https://github.com/mellislab/mellislab.github.io
     
 you will be using the https protocol for which the required authentication protocol is Personal Access Token (PAT).  Read [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for instructions on how to create and use PAT.
 
 If you clone the repo by issuing the following git command:
 
-    git clone git@github.com:getzlab/getzlab.github.io.git
+    git clone git@github.com:mellislab/mellislab.github.io.git
 
 you will be using the SSH protocol to connect to github.  Before issuing this clone command you will need to ensure you have an SSH key installed on your laptop, added to the ssh-agent and added to your GitHub account.  Instructions for doing this are [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 If you specified the https protocol when you cloned the repo but want to switch to SSH, issue the following git command:
 
-    git remote set-url origin git@github.com:getzlab/getzlab.github.io
+    git remote set-url origin git@github.com:mellislab/mellislab.github.io
 
 You must have an SSH key added to your GitHub account before issuing the above command.
 
@@ -74,7 +74,7 @@ To run Jekyll from within a Docker container simply issue the following command:
 
 	$ docker run --rm --volume="$PWD:/srv/jekyll" -p 4000:4000 jekyll/jekyll:4.0 jekyll serve
 	
-where the current working directory is the top-most directory of the cloned getzlab.github.io repository.
+where the current working directory is the top-most directory of the cloned mellislab.github.io repository.
 
 If you chose to install Ruby and Jekyll on your development system, the following command, run from the top-most directory of the cloned repo, will generate and serve the content for preview:
 
@@ -94,33 +94,33 @@ For example, suppose you recently had a paper published and want it listed on th
 
 The date which prefaces the filename is used by the static file generator; it's inelegant and perhaps there's a way to do it differently, but that's how it is for now. Now edit the new file to make the content what you want. Just open it in your favorite editor and type away. By the time you're done, hopefully you have something like this:
 
-	---
-	layout: paper
-	title: "DNA Polymerase and Mismatch Repair Exert Distinct Microsatellite Instability Signatures in Normal and Malignant Human Cells"
-	year: "2021"
-	journal: Cancer Discovery
-	volume: 
-	author: Chung J, Maruvka YE, Sudhaman S, Kelly J, Haradhvala NJ, Bianchi V, Edwards M, Forster VJ, Nunes NM, Galati MA, Komosa M, Deshmukh S, Cabric V, Davidson S, Zatzman M, Light N, Hayes R, Brunga L, Anderson ND, Ho B, Hodel KP, Siddaway R, Morrissy AS, Bowers DC, Larouche V, Bronsema A, Osborn M, Cole KA, Opocher E, Mason G, Thomas GA, George B, Ziegler DS, Lindhorst S, Vanan M, Yalon-Oren M, Reddy AT, Massimino M, Tomboc P, Van Damme A, Lossos A, Durno C, Aronson M, Morgenstern DA, Bouffet E, Huang A, Taylor MD, Villani A, Malkin D, Hawkins CE, Pursell ZF, Shlien A, Kunkel TA, Getz G, Tabori U
-	first_authors: Chung J, Maruvka YE
-	senior_authors: Getz G, Tabori U
-	corresponding_authors: Getz G, Tabori U
-	fulltext: https://cancerdiscovery.aacrjournals.org/content/11/5/1176.long
-	doi: 10.1158/2159-8290.CD-20-0790
-	pmid: 33355208
-	category: paper
-	preprint: false
-	---
+		---
+		layout: paper
+		title: "Antibody evasion and receptor binding of SARS-CoV-2 LP.8.1.1, NB.1.8.1, XFG, and related subvariants"
+		journal: Cell Reports
+		volume: 44
+		issue: 10
+		pages: 116440
+		year: "2025"
+		authors: Mellis IA, Wu M,  Hong H, Tzang CC, Bowen A, Wang Q, Gherasim C, Pierce VM, Shah JG, Purpura LJ, Yin MT, Gordon A, Guo Y, Ho DD 
+		front_authors: Mellis IA, Wu M, Hong H, Tzang CC, Bowen A
+		first_authors: Mellis IA, Wu M, Hong H, Tzang CC, Bowen A
+		senior_authors: Gordon A, Guo Y, Ho DD
+		back_authors: Gordon A, Guo Y, Ho DD
+		fulltext:
+		doi: 10.1016/j.celrep.2025.116440
+		pmid: 41091599
+		category: paper
+		---
 
-	# Abstract
+		# Abstract
 
-        Although replication repair deficiency, either by mismatch repair deficiency (MMRD) and/or loss of DNA polymerase proofreading, can cause hypermutation in cancer, microsatellite instability (MSI) is considered a hallmark of MMRD alone. By genome-wide analysis of tumors with germline and somatic deficiencies in replication repair, we reveal a novel association between loss of polymerase proofreading and MSI, especially when both components are lost. Analysis of indels in microsatellites (MS-indels) identified five distinct signatures (MS-sigs). MMRD MS-sigs are dominated by multibase losses, whereas mutant-polymerase MS-sigs contain primarily single-base gains. MS deletions in MMRD tumors depend on the original size of the MS and converge to a preferred length, providing mechanistic insight. Finally, we demonstrate that MS-sigs can be a powerful clinical tool for managing individuals with germline MMRD and replication repair–deficient cancers, as they can detect the replication repair deficiency in normal cells and predict their response to immunotherapy.
-
-        **Significance**: Exome- and genome-wide MSI analysis reveals novel signatures that are uniquely attributed to mismatch repair and DNA polymerase. This provides new mechanistic insight into MS maintenance and can be applied clinically for diagnosis of replication repair deficiency and immunotherapy response prediction.
+		SARS-CoV-2 continues to evolve, causing waves of infections. It is critical to understand the features of the virus that explain its growth advantages. Recently, SARS-CoV-2 Omicron JN.1 subvariants KP.3.1.1 and XEC were outcompeted by LP.8.1 and LP.8.1.1. Other subvariants, including LF.7.2.1 and MC.10.1, were also under monitoring. Subsequently, NB.1.8.1 and XFG became dominant. We found that serum neutralizing antibody titers against LP.8.1, LP.8.1.1, LF.7, LF.7.2.1, and MC.10.1 were similar to XEC in 40 adults, including KP.2 monovalent mRNA vaccine recipients. NB.1.8.1 and XFG were more evasive of serum neutralization than LP.8.1.1. Neutralization by 12 monoclonal antibodies (mAbs) revealed that LP.8.1 and XFG, MC.10.1 and NB.1.8.1, and LF.7.2.1 evade different mAb classes. Lastly, the receptor-binding affinity of LP.8.1 was the highest among the tested viruses. Unlike most prior SARS-CoV-2 sublineage evolutionary trajectories, receptor-binding affinity better explained the rise of LP.8.1, while expansion of NB.1.8.1 and XFG appears correlated with enhanced antibody evasion.
 
 Run a dockerized version of Jekyll to preview your updates (see [Previewing your local edits](#previewing-your-local-edits)).  Once you are satisfied with the updated content, add it to the repository, commit, and push to GitHub:
 
-	git add 2021-05-01-mismatch-repair-msi-signatures.md
-	git commit -m "Yosi's mismatch repair msi signature paper"
+	git add 2025-10-14-LP81.md
+	git commit -m "Ian's LP81 paper"
 	git push origin <your name>-staging
 
 This new paper won't yet be public. The next section shows you how to do that.
@@ -136,21 +136,21 @@ All edits should be made to your personal `user-staging` branch. When you start 
 
 Instead of merging your changes directly to the `master` branch, you will create a pull request.
 
-After pushing your branch to the repo, go to github and create a pull request, naming cbirger as the reviewer.  (Eventually reviewer responsibilities will be shared across multiple lab members.)  **When you create the pull request, please make sure you set the base repository to getzlab/getzlab.github.io and the base reference branch to master.**  Once a pull request is approved, it will be merged to master.  It is the merge to master that results in the publication of the new contento to the lab's public website.
+After pushing your branch to the repo, go to github and create a pull request, naming cbirger as the reviewer.  (Eventually reviewer responsibilities will be shared across multiple lab members.)  **When you create the pull request, please make sure you set the base repository to mellislab/mellislab.github.io and the base reference branch to master.**  Once a pull request is approved, it will be merged to master.  It is the merge to master that results in the publication of the new contento to the lab's public website.
 
-A couple of minutes after your pull request is approved and completed, check to make sure your updates to the public site [www.getzlab.org](http://www.getzlab.org) appear the way you intended.
+A couple of minutes after your pull request is approved and completed, check to make sure your updates to the public site [www.mellislab.org](http://www.mellislab.org) appear the way you intended.
 
 Don't forget to make your changes on a personal staging branch so they can be reviewed before merging into master!
 
 ## Changing look and feel
 
-Fonts, colors, spacing, and similar stylings are separate from the template pages. Like most sites, we use Cascading Style Sheets (CSS).  Much of this is borrowed from [Alan Drummond's lab website](http://drummondlab.org) but may be updated over time (based on input from the web designers in the Broad's [Patterns team](https://pattern.broadinstitute.org/).
+Fonts, colors, spacing, and similar stylings are separate from the template pages. Like most sites, we use Cascading Style Sheets (CSS).  Much of this is borrowed from [Gad Getz's](http://getzlab.org) and [Alan Drummond's lab website](http://drummondlab.org) but may be updated over time (based on input from others.
 
 # Content Classes
 
 ## papers
 
-The Getz Lab website displays lists of publications on three pages.  Recently published papers (six most recently published) appear on the front page under the heading "Recent Papers".  All papers added to the website will appear on the Selected Papers page, navigated to by selecting Papers in the top nav bar. Team member pages include a list of lab papers where the team member is a co-author.  In all listings, the names of authors that are current or past lab members are in a **bold** font.  In all listings, a paper's title is an internal like to a web page devoted to that paper.  The paper's web page lists all of the paper's authors; journal name, volume, issue and page; abstract; public link to journal article fulltext and/or pdf (when available); the PubMed ID (linked to PubMed entry); and the DOI, which is linked back to the paper's permanent web address. 
+The Mellis Lab website displays a list of all publications in the "Papers" page.  In all listings, a paper's title is an internal link to a web page devoted to that paper.  The paper's web page lists all of the paper's authors; journal name, volume, issue and page; abstract; public link to journal article fulltext and/or pdf (when available); the PubMed ID (linked to PubMed entry); and the DOI, which is linked back to the paper's permanent web address. 
 
 To add a new paper to the site, you will create a markdown file and place it in the papers/_posts folder.  The file's name must follow the following syntax:
 
@@ -188,13 +188,12 @@ IMPORTANT:
 
 To get the comma-separated list of authors (which can be quite long for many of our lab's publications) go to the paper's pubmed site, click on "Cite" under "ACTIONS" and copy/paste the full length of authors.  Note each author is listed lastname first followed by one or two initials, e.g.:
 
-Morton LM, Karyadi DM, Stewart C, Bogdanova TI, Dawson ET, Steinberg MK, Dai J, Hartley SW, Schonfeld SJ, Sampson JN, Maruvka YE, Kapoor V, Ramsden DA, Carvajal-Garcia J, Perou CM, Parker JS, Krznaric M, Yeager M, Boland JF, Hutchinson A, Hicks BD, Dagnall CL, Gastier-Foster JM, Bowen J, Lee O, Machiela MJ, Cahoon EK, Brenner AV, Mabuchi K, Drozdovitch V, Masiuk S, Chepurny M, Zurnadzhy LY, Hatch M, Berrington de Gonzalez A, Thomas GA, Tronko MD, Getz G, Chanock SJ
-
+Mellis IA, Wu M,  Hong H, Tzang CC, Bowen A, Wang Q, Gherasim C, Pierce VM, Shah JG, Purpura LJ, Yin MT, Gordon A, Guo Y, Ho DD 
 (The PubMed site is also a good source for the other fields.)
 
-Each current or past lab member's page contains a yaml key/value pair `citation-names`.  It is important that any citation name used for that member be included in that key's value.  For example, in pmid citations, Gaddy's name is listed as Getz G or Getz GA;  his team member page contains the following comma-separated list:
+Each current or past lab member's page contains a yaml key/value pair `citation-names`.  It is important that any citation name used for that member be included in that key's value.  For example, in pmid citations, Ian's name is listed as Mellis IA or Mellis I;  his team member page contains the following comma-separated list:
 
-	citation_names: Getz G, Getz GA
+	citation_names: Mellis IA, Mellis I
 	
 This is how we ensure lab members' names appear in a bold font in any paper added to the lab website.
 
@@ -216,17 +215,12 @@ Once the new paper is added to the papers/_posts directory, it will be fully int
 
 ## team
 
-Navigating to "Team" (on the top navigation bar) displays Getz Lab membership, both present and past.  Members and alumni are listed under the following subheadings: 
+Navigating to "Team" (on the top navigation bar) displays Getz Lab membership, both present and past.  Members, some close collaborators, and alumni are listed under the following subheadings: 
 
-- Principal Investigator (Gaddy)
-- Operations and Administration
-- Staff Scientists
-- Staff Engineers
-- Research and Computational Associates
-- Postdoctoral Researchers
-- Graduate Students
-- Associated Scientists
-- Undergraduate Students and Interns
+- Principal Investigator (Ian)
+- Lab Members
+- Co-Mentees
+- Friends of Lab
 - Alumni
 
 Clicking on a team member's name takes one to the member's personal lab webpage.  Each current member of the lab is responsible for creating and/or maintaining their personal webpage.  
@@ -245,13 +239,15 @@ The yaml front matter in a lab member page should contain the following:
 	layout: member
 	title: <member name (first last)>
 	citation_names: <comma-separated list of (PMID-style) citation names>
-	category: Principal Investigator | Operations and Administration | Staff Scientist | Staff Engineer | Associate | Postdoctoral Researcher | Graduate Student | Associated Scientist | Undergraduate Student | Intern
+	category: Principal Investigator | Member | Co-Mentee | Friend
 	position: <position title>
-	[email: <broad email>]
+	[email: <columbia email>]
 	[mask_email: false | true]
 	[twitter: <twitter handle>]
+	[bluesky: <bluesky handle>]
 	[github: <github userid>]
 	[linkedin: <linkedin id>]
+	[website: <personal website url>]
 	[image: /assets/images/team/<image png filename>]
 	[cv: /assets/pdfs/<cv pdf filename>]
 	[scholar: <google scholar id>]
@@ -265,84 +261,17 @@ The yaml front matter in a lab member page should contain the following:
 
 Front matter fields listed in brackets above are optional. 
 
-Your image file should have an aspect ratio of 1:1.  This ensures the rows on the team page all have the same height.
+Your image file should have an aspect ratio of 160:196.  This ensures the rows on the team page all have the same height.
 
 The disclosures link typically points to a shared google doc that the lab member maintains.  The google doc must be public; i.e., given the link, anyone can view the document.
 
-If alum is set to true, you must also provide a parting_date field...this allows us to list alumni in descending order of the date they left the lab.
+If alum is set to true, you must also provide a parting_date field. This allows us to list alumni in descending order of the date they left the lab.
 
 Following the YAML front matter you may provide any text you would like to appear on your member page.  This might include research interests and biographical information.
 
-## portals
-Navigating to "Portals" (on the top navigation bar) displays the public portals the lab has contributed to.  Clicking on the portal's logo takes you to the portal website.
 
-These pages reside in the folder portals/_posts.  The file's name must follow the following syntax:
-
-	<date portal released>-<portal name>.md
-	
-The yaml front matter for a portal contains the following:
-
-	---
-	layout: portal
-	title: <portal title>
-	category: portal
-	web_url: <portal url>
-	image: /assets/images/portals/<portal logo png>
-	---
-	
-Following the YAML front matter you may provide text summarizing the portal's purpose and content.  This may include internal links to a lab paper referencing the portal; e.g., below is the text contained in the tumor portal md file:
-
-	Data and results from [Lawrence2014] are posted on the Tumor Portal site. The site includes graphical displays of the mutations in each of the 18,388 genes studied. The site also includes tables of mutational data for each significant gene) and Q-Q plots for each statistical test.  
-
-	[Lawrence2014]: /papers/paper/mutsig2cv
- 
 ## positions
 TBD
-
-## tools
-Getzlab tools are listed on the getzlab website's [tool page](http://www.getzlab.org/tools).  On that page tools are presented in two lists: Current Tools and Historic Tools.  Current tools are actively used wihtin the Getz Lab; historic tools, while retired from current use, still have historical significance.  Displayed information about each tool is pulled from its respective github repository.  Displayed information includes the repo description, a link to the github repo, repo topics, the date the repo was last updated and the github userid of the individual who made that last update.
-
-Tools to be incorporated into the website are listed in the \_config.yml file contained in the getzlab.github.io repository's top-most directory. The yml file contains two yaml list definitions: "current\_tools" and "retired\_tools", e.g.,
-
-	current_tools:
-		- name: deTiN
-		  repo: getzlab/deTiN
-		- name: MutSig2CV
-		  repo: getzlab/MutSig2CV
-		- name: CLUMPS 2
-   		  repo: getzlab/CLUMPS2
-		- name: RNA-SeQC 2
- 		  repo: getzlab/rnaseqc
-		- name: SignatureAnalyzer
-		  repo: getzlab/SignatureAnalyzer
-		- name: MuTect 1
-		  repo: getzlab/mutect
-		- name: MSMuTect 2
-		  repo: getzlab/MSMuTect2
-		- name: ABSOLUTE
-		  repo: getzlab/ABSOLUTE
-		- name: GISTIC 2
-		  repo: broadinstitute/gistic2
-		- name: MSMutSig
-		  repo: getzlab/MSMutSig
-		  
-	retired_tools:
-		- name: CLUMPS
-		  repo: getzlab/CLUMPS
-		- name: MSMuTect1
-		  repo: getzlab/MSMutect1
-
-Both lists have the same structure: a list element contains two fields: "name" and "repo".  The name field specifies the name by which the tool will be listed on the website; the repo field specifies the github repo name.  Tools within each list are presented in alphabetical order of their respective names, not the order in which they appear in the \_config.ymal file.  Note that if a tool is to be listed on the GetzLab website, it's github repo should (a) fall under the getzlab github organization and (b) be public. 
-
-Data is retrieved from the github tool repos via a [preprocessing ruby script](https://github.com/getzlab/getzlab.github.io/blob/master/_scripts/generate-tool-data.rb).  When run, the script reads the list of tool repositories from \_config.yml and makes a series of GitHub API calls to retrieve the desired data.  The retrieved data is written to two yml files: [current\_tools.yml](https://github.com/getzlab/getzlab.github.io/blob/master/_data/current_tools.yml) and [retired_tools.yml](https://github.com/getzlab/getzlab.github.io/blob/master/_data/retired_tools.yml).  Updates to these files, as a result of running the preprocessing script, need to be checked into to the getzlab.github.io repo.
-
-Although the repos from which data is being retrieved are public, the API calls need to be authenticated because the GitHub API rate limits unauthenticated queries.  A shell environment variable, GITHUB_TOKEN, must be set with a github access token in order to successfully run the script.    
-
-Our preprocessing script uses the [octokit](https://github.com/octokit/octokit.rb) implementation of the github API to retrieve data from each tool's repo.  In order to run the script, you will need to have Ruby installed along with the Octokit Ruby Gem.  The script is run as follows from the top-most directory of the getzlab.github.io directory tree:
-
-	ruby _scripts/generate-tool-data.rb
-	
-As mentioned before, the updated versions of current\_tools.yml and retired\_tools.ym generated by the preprocessing script need to be checked into the master branch and pushed to github. 
 
 ## talks
 TBD
@@ -352,7 +281,7 @@ TBD
 
 # To-dos
 
-See Issues on [the repo site](https://github.com/getzlab/getzlab.github.io).
+See Issues on [the repo site](https://github.com/mellislab/mellislab.github.io).
 
 
 # License

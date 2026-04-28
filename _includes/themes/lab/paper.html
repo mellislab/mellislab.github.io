@@ -98,10 +98,13 @@ with gratitude.
   </div>
   <div class="col-md-5">
     <div class="pull-right">  
-      <strong>Getz Lab Authors</strong><br>
-      * <em>First Authors</em><br>
-      # <em>Senior Authors</em><br>
-      ^ <em>Corresponding Authors</em><br>
+      <strong>Mellis Lab Authors</strong><br>
+      {% if page.first_authors %}
+      * <em>Co-first Authors</em><br>
+      {% endif %}
+      {% if page.senior_authors %}
+      # <em>Corresponding Authors</em><br>
+      {% endif %}
       <div class="hugespacer"></div>
 
 
@@ -151,7 +154,7 @@ with gratitude.
       <div class="pad-left note">
 	<div class="smallspacer"></div>
 	<i class="fa fa-external-link fa-fw"></i>
-	<a class="off" href="http://dx.doi.org/{{ page.doi }}">{{ page.doi }}</a>
+	<a class="off" href="http://dx.doi.org/{{ page.doi }}" target="_blank">{{ page.doi }}</a>
       </div>
       <div class="bigspacer"></div>			
       {% endif %}
@@ -171,14 +174,6 @@ with gratitude.
       <div class="smallspacer"></div>			
       <div class='altmetric-embed' data-badge-type='donut' data-badge-popover='left' data-doi={{ page.doi }}></div>
       <div class="bigspacer"></div>			
-
-      <div class="smallhead">
-	Share
-      </div>
-      <div class="smallspacer"></div>
-      <div class="post-sharing">
-	{% include JB/sharing %}
-      </div>
       
     </div>
   </div>

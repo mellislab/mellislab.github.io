@@ -5,6 +5,14 @@ Incremental version bumps that were not released publicly are nested where appro
 
 P.S. If there is a standard (popular) changelog format, please let me know.
 
+
+Mellis Lab
+
+- **1.0.0 : 2026.04.08
+    - **Features**
+    - Create prototype site based on Getz Lab code
+
+Getz Lab Changelog
 - **0.3.0 : 2013.02.24**
     - **Features**
     - Update twitter bootstrap to 2.2.2. Add responsiveness and update design a bit.
