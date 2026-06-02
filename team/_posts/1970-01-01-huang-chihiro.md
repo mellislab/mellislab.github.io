@@ -1,7 +1,7 @@
 ---
 layout: member
 title: Chien-Yu (Chihiro) Huang
-citation_names: Huang CY, Huang C [add/remove as needed]
+citation_names: Huang CY, Huang C, Huang C-Y 
 category: Co-Mentee
 primary: David Ho
 position: Visiting M.D. student 
